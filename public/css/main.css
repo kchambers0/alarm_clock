@@ -109,10 +109,16 @@ body {
 }
 .time {
   display: block;
-  font-size: 60px;
+  font-size: 100px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%);
   color: #ff00ff;
+}
+.alarm {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
 }

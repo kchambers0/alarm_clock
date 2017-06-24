@@ -8,6 +8,11 @@
     </head>
     <body>
         <div class="time">0:00</div>
+
+        <div class="alarm">
+            <input class="alarm-time" value="" />
+            <button class="alarm-set">Set Alarm</button>
+        </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -17,6 +22,10 @@
             var alarm_clock = {
                 //create time var. Set to empty object because Date is added in init();
                 time:{},
+                //the time for the alarm to check for
+                alarm:null,
+                //Whether or not alarm is set. Useful so that alarm does not go off every second.
+                alarmSet:false,
 
                 //create init function. Sets time new date object and updates display to that time. Sets interval to update clock per every minute.
                 init:function(){
@@ -24,14 +33,43 @@
                     self.time = new Date();
                     self.updateClock();
 
+                    //attach listeners. In this case, attaches "set alarm" function to "set alarm" button
+                    self.attachListeners();
+
+                    //I guess date doesn't self update? So overwrite date object with current time. Re-update every second (in case user loads at x:xx:59).
                     setInterval(function(){
+                        self.time = new Date();
                         self.updateClock();
-                    }, 60000)
+                        self.checkAlarm(self.alarm);
+                    }, 1000);
                 }, 
+
+                attachListeners:function(){
+                    var self = this;
+
+                    //adds time and sets alarm
+                    $('.alarm-set').click(function(e){
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        self.alarm = $('.alarm-time').val();
+                        self.alarmSet = true;
+                    })
+                },
+
+                checkAlarm:function(alarm){
+
+                },
 
                 //updates the clock to the correct time
                 updateClock:function(){
-                    $('.time').text(self.time.getHours()>12?self.time.getHours()-12+":"+self.time.getMinutes()+" PM":self.time.getHours() + ":" + self.time.getMinutes()+" AM");
+                    //Subtracts 12 from time. So it's not in army time
+                    var hour = self.time.getHours()>12?self.time.getHours()-12:self.time.getHours();
+                    //adds leading zero to minutes if necessary
+                    var minutes = self.time.getMinutes().toString().length < 2?"0" + self.time.getMinutes(): self.time.getMinutes();
+                    //discerns between am and pm
+                    var ampm = self.time.getHours()>12?" PM":" AM";
+                    $('.time').text(hour +":"+ minutes + ampm);
                 }
             }.init();
         })
