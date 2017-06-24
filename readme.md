@@ -8,6 +8,6 @@ Also would like to add a bit better alarm setter. I would probably split the fie
 
 Took about an hour and a half. Much of which was spent fiddling with the ".ico" file to get it working properly. Hopefully it doesn't blow up. Haha! Just move the .ico file up a folder if it does. That ought to do it.
 
-To run the app, simply pull down and run "node start.js". That's it!
+To run the app, simply pull down and run "node start.js" from the folder in the CLI. That's it!
 
 -Kevin
