@@ -40,7 +40,7 @@
                     setInterval(function(){
                         self.time = new Date();
                         self.updateClock();
-                        self.checkAlarm(self.alarm);
+                        self.checkAlarm();
                     }, 1000);
                 }, 
 
@@ -54,11 +54,23 @@
 
                         self.alarm = $('.alarm-time').val();
                         self.alarmSet = true;
+
+                        alert("Your alarm was set");
                     })
                 },
 
-                checkAlarm:function(alarm){
+                //Checks to see if alarm should sound.
+                checkAlarm:function(){
+                    var self = this;
+                    //console.log(self.alarm);
+                    //console.log(self.alarmSet);
 
+                    //if times match and alarm is set, Buzz it! Then clear alarm vars.
+                    if($('.time').text() == self.alarm && self.alarmSet == true){
+                        alert("Bzzt. Bzzt. You're alarm is going off!");
+                        self.alarm = null;
+                        self.alarmSet = false;
+                    }
                 },
 
                 //updates the clock to the correct time
