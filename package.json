@@ -1,0 +1,19 @@
+{
+  "name": "_template_static",
+  "version": "0.0.1",
+  "description": "Static Template",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start.js"
+  },
+  "author": "",
+  "license": " ",
+  "dependencies": {
+    "express": "~3.5.1",
+    "mustache": "~0.8.1",
+    "consolidate": "~0.10.0",
+    "hogan-express": "~0.5.2",
+    "nodemon": "~1.0.17"
+  }
+}

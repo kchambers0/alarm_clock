@@ -1,0 +1,113 @@
+/*Base Reset---*/
+*{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  text-decoration:none;
+  list-style:none;
+}
+
+.hidden{
+  display:none !important;
+  visibility:hidden !important;
+}
+
+.desktop{
+  display:block;
+}
+.mobile{
+  display: none;
+}
+
+@media (max-width:640px){
+  .desktop{
+    display:none;
+  }
+  .mobile{
+    display:block;
+  }
+}
+
+
+.clearfix{
+  &:after{
+    content:'';
+    display:block;
+    clear:both;
+  }
+}
+
+.text-center{
+  text-align:center;
+}
+
+a{
+  cursor:pointer;
+}
+
+/*Grid--*/
+  .container{
+    width:900px;  
+    margin:0 auto;
+  }
+@media (max-width: 900px){
+  .container{
+    width:100%;
+    padding:20px;
+  }
+}
+
+.row{
+  margin:0 -10px;
+  padding:8px 0;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12{
+  display:block;
+  float:left;
+  height:auto;
+  padding:0 10px;
+}
+
+@media (max-width:640px){
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12{
+    
+  }
+}
+
+.col-1{
+  width:8.3333333%;
+}
+.col-2{
+  width:16.666666%;
+}
+.col-3{
+  width:25%;
+}
+.col-4{
+  width:33.333333%;
+}
+.col-5{
+  width:41.666666%
+}
+.col-6{
+  width:50%;
+}
+.col-7{
+  width:58.333333%;
+}
+.col-8{
+  width:66.666666%;
+}
+.col-9{
+  width:75%;
+}
+.col-10{
+  width:83.3333333%
+}
+.col-11{
+  width:91.6666666%
+}
+.col-12{
+  width:100%
+}

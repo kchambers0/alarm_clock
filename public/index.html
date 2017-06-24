@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        
+    </head>
+    <body>
+        <div class="time">0:00</div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    	$(function(){
+            var alarm_clock = {
+                time:{},
+
+                init:function(){
+                    self = this;
+                    self.time = new Date();
+                    $('.time').text(self.time.getHours() + ":" + self.time.getMinutes());
+                }
+            }.init();
+        })
+    </script>
+</html>
