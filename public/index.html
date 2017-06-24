@@ -11,14 +11,27 @@
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+    //create anonymous function. So that there are no namespace conflicts.
     	$(function(){
+            //create new alarm_clock object
             var alarm_clock = {
+                //create time var. Set to empty object because Date is added in init();
                 time:{},
 
+                //create init function. Sets time new date object and updates display to that time. Sets interval to update clock per every minute.
                 init:function(){
                     self = this;
                     self.time = new Date();
-                    $('.time').text(self.time.getHours() + ":" + self.time.getMinutes());
+                    self.updateClock();
+
+                    setInterval(function(){
+                        self.updateClock();
+                    }, 60000)
+                }, 
+
+                //updates the clock to the correct time
+                updateClock:function(){
+                    $('.time').text(self.time.getHours()>12?self.time.getHours()-12+":"+self.time.getMinutes()+" PM":self.time.getHours() + ":" + self.time.getMinutes()+" AM");
                 }
             }.init();
         })

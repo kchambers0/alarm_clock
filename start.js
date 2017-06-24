@@ -21,7 +21,7 @@ app.set('views', __dirname + '/public/');
 
 var App = {
     init: function(){
-        app.use(favicon('../favicon.ico'));
+        app.use(favicon(__dirname.replace(domain, '') + domain + '/favicon.ico'));
 
         app.get('/', function(req, res){
             res.render('index');
